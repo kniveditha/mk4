@@ -10,6 +10,12 @@ var LiuKang;
     return warriorPoints >= enemyPower;
   }
 
+  const getWarriors = (callback) => {
+    setTimeout(function() {
+      callback(null, require("./database.json"));
+    }, 50);
+  }
+
 class Warrior {
   constructor(name, strength, skill, gear) {
     this.name = name;
@@ -97,12 +103,13 @@ fight = () => {
 }
 
 setUpWarriors();
-fight();
+// fight();
 
 module.exports = {
   Scorpion,
   Warrior,
   Armor,
   Weapon,
-  attack
+  attack,
+  getWarriors
 }

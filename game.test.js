@@ -7,6 +7,7 @@ Armor = require("./game").Armor;
 Weapon = require("./game").Weapon;
 Warrior = require("./game").Warrior;
 attack = require("./game").attack;
+getWarriors = require("./game").getWarriors;
 
 // describe("Test Calculate bonus", () => {
 //   it("should return a bonus of 6", () => {
@@ -46,20 +47,37 @@ attack = require("./game").attack;
    
 // });
 
-describe("Test", () => {
-var enemyArmor, enemySkill, warriorStrength, rollDiceFunc;
-  beforeEach(function(done) {
-         enemyArmor = 5;
-         enemySkill = 6;
-         warriorStrength= 6;
-        rollDiceFunc = (val1, val2) => {
-          return 20;
-        }
-        setTimeout(done, 300);
-    });
+// describe("Test", () => {
+// var enemyArmor, enemySkill, warriorStrength, rollDiceFunc;
+//   beforeEach(function(done) {
+//          enemyArmor = 5;
+//          enemySkill = 6;
+//          warriorStrength= 6;
+//         rollDiceFunc = (val1, val2) => {
+//           return 20;
+//         }
+//         setTimeout(done, 300);
+//     });
   
-    it('should return true when calling attack', function() {
-      expect(attack(enemyArmor, enemySkill, warriorStrength, rollDiceFunc)).to.equal(true);
-    });
+//     it('should return true when calling attack', function() {
+//       expect(attack(enemyArmor, enemySkill, warriorStrength, rollDiceFunc)).to.equal(true);
+//     });
    
+// });
+
+describe("test getWarriors", () => {
+ // var allWarriors = getWarriors(err,data);
+  
+
+  it("should return 7", () => {
+   // console.log(allWarriors);
+
+    getWarriors ((err,data)=> {
+      console.log(data);
+      data.length.should.equal(7);
+      done();
+    });
+    // expect(scorpian.armorBonus).to.equal(6);
+    //fix me --> armorBonus is always returning zero
+  });
 });
